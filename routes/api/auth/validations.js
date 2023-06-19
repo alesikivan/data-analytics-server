@@ -17,5 +17,10 @@ export const hubspotLogin = [
   check('gender', 'Gender can not be empty.')
     .notEmpty(),
   check('gender', 'Gender has invalid format.')
-    .custom(gender => ['Male', 'Female'].includes(gender))
+    .custom(gender => ['Male', 'Female', 'Diverse'].includes(gender)),
+
+  check('type', 'Client type can not be empty.')
+    .notEmpty(),
+  check('type', 'Client type has invalid format.')
+    .custom(gender => ['Company', 'Student'].includes(gender))
 ]

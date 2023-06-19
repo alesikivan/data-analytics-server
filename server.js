@@ -20,10 +20,10 @@ app.use('/api', routes)
 
 app.use('/api/docs/privacy-policy', docsController.getPrivacyPolicy)
 
-app.use(express.static('./client/build'))
+app.use(express.static('./client/dist'))
 
 app.get('*', async (req, res) => {
-  const filePath = path.join(process.cwd(), 'client', 'build', 'index.html');
+  const filePath = path.join(process.cwd(), 'client', 'dist', 'index.html');
 
   const file = fs.existsSync(filePath)
 

@@ -14,7 +14,7 @@ class authController {
         return res.status(400).json({ message: error })
       }    
 
-      const { name, surname, email, gender } = req.body
+      const { name, surname, email, gender, type } = req.body
 
       const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_API_KEY })
 
@@ -23,24 +23,16 @@ class authController {
         firstname: name,
         lastname: surname,
         gender: gender,
-        email_subscription: 'subscribed'
+        email_subscription: 'subscribed',
+        client_type: type
       }
 
-      // Create a contact
-      hubspotClient.crm.contacts.basicApi
-        .create({ properties: contactData })
-        .then(() => {
-          res.status(200).json({ message: 'Data has been successfully saved!' })
-        })
-        .catch((error) => {
-          const { 
-            body: { message }
-          } = JSON.parse(JSON.stringify(error))
-
-          console.log(message)
-          
-          res.status(400).json({ message })
-        })
+      try {
+        const creating = await hubspotClient.crm.contacts.basicApi.create({ properties: contactData })
+        return res.status(200).json({ message: 'Data has been successfully saved!' })
+      } catch (error) {
+        return res.status(400).json({ message: 'Error creating account. Please try with other data.' })
+      }
       
     } catch (error) { 
       console.log(error)
