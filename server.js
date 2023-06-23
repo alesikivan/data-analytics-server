@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000
 import routes from './routes/index.js'
 import docsController from './controllers/docsController.js'
 
-// Settings
+// Настройки
 app.use(express.json())
 app.use(cors())
 
