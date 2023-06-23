@@ -2,4 +2,6 @@ node_modules
 
 .DS_Store
 
+ecosystem.config.cjs
+
 .env
