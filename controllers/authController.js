@@ -1,7 +1,6 @@
 import { validationResult } from 'express-validator'
+import config from 'config'
 import { Client } from "@hubspot/api-client"
-import dotenv from 'dotenv'
-dotenv.config()
 
 class authController {
   async hubspotLogin(req, res) {
@@ -12,11 +11,11 @@ class authController {
         const error = errors.errors[0].msg
 
         return res.status(400).json({ message: error })
-      }    
+      }
 
       const { name, surname, email, gender, type } = req.body
 
-      const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_API_KEY })
+      const hubspotClient = new Client({ accessToken: config.get('APP.HUBSPOT_API_KEY') })
 
       const contactData = {
         email: email,

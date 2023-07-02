@@ -4,4 +4,8 @@ node_modules
 
 ecosystem.config.cjs
 
+config
+
 .env
+
+#uploads
