@@ -9,3 +9,5 @@ config
 .env
 
 uploads/resume/*
+
+static/languages/*
