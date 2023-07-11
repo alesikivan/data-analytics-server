@@ -13,6 +13,21 @@ class contentController {
       return res.status(400).json({ message: 'Undefined server error' })
     }
   }
+
+  async setLanguages(req, res) {
+    try {
+      const { en, cs } = req.body
+  
+      // Сохраняем данные в формате JSON
+      fs.writeFileSync(path.join(process.cwd(), 'static', 'languages', 'en.json'), JSON.stringify(en, null, 2))
+      fs.writeFileSync(path.join(process.cwd(), 'static', 'languages', 'cs.json'), JSON.stringify(cs, null, 2))
+  
+      return res.status(200).json({ message: 'Data saved successfully' })
+    } catch (error) {
+      console.log(error)
+      return res.status(400).json({ message: 'Undefined server error' })
+    }
+  }
 }
 
 function getLanguage(filename) {

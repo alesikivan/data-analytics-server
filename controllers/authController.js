@@ -1,18 +1,11 @@
-import { validationResult } from 'express-validator'
 import config from 'config'
 import { Client } from "@hubspot/api-client"
+
+import { generateAccessToken } from '../utils/jwt.js'
 
 class authController {
   async hubspotLogin(req, res) {
     try {
-      const errors = validationResult(req)
-      
-      if (!errors.isEmpty()) {
-        const error = errors.errors[0].msg
-
-        return res.status(400).json({ message: error })
-      }
-
       const { name, surname, email, gender, type } = req.body
 
       const hubspotClient = new Client({ accessToken: config.get('APP.HUBSPOT_API_KEY') })
@@ -36,6 +29,28 @@ class authController {
     } catch (error) { 
       console.log(error)
       return res.status(400).json({ message: 'Undefined server error' })
+    }
+  }
+
+  async login(req, res) {
+    try {
+      const { login, password } = req.body
+ 
+      if (login !== config.get('ADMIN.LOGIN')) {
+        return res.status(400).json({ message: 'Invalid login data or user does not exist'})
+      }
+
+      if (password !== config.get('ADMIN.PASSWORD')) {
+        return res.status(400).json({ message: 'Invalid login data or user does not exist'})
+      }
+      
+      const token = generateAccessToken()
+      
+      return res.status(200).json({ token, message: 'You have successfully logged into the system!' })
+    }
+    catch (error) {
+      console.log(error)
+      return res.status(400).json({ message: translater('serverFatal') })
     }
   }
 }

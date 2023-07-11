@@ -1,4 +1,5 @@
 {
+  "emptyFieldError": "Pole nemůže být prázdné",
   "interceptorErrorNotification404": "Požadavek neexistuje: 404",
   "interceptorErrorNotification": "Access Denied",
   "interceptorErrorNotificationServer": "Undefiend server error",
@@ -113,13 +114,11 @@
   "notFoundPageError": "#404",
   "notFoundPageErrorMessage": "Stránka nenalezena",
   "notFoundPageLink": "Domov",
-
   "headerMenuIntroduction": "Úvod",
   "headerMenuStudents": "Studenti",
   "headerMenuCompanies": "Společnosti",
   "headerMenuMuni": "MUNI",
   "headerMenuBootcamp": "Bootcamp",
-
   "homePageTitle": "MUNI Data Analytics",
   "homePageDescription": "Program Data Analytics pomáhá propojovat mladé profesionály a známé společnosti. Data Analytics má budoucí profesionály vybavit tak rozmanitými dovednostmi.",
   "homePageSignUpLink": "Začněte s programem!",
@@ -137,7 +136,6 @@
   "homePageSectionUniversityTitle": "Masarykova univerzita",
   "homePageSectionUniversityDescription": "V tuto chvíli zveme zájemce o studium na úvodní hybridní workshop (online první kolo s osobním finálním kolem), kde budou pracovat na projektových úlohách pod záštitou fakulty a seznámí se s našimi průmyslovými partnery a profesory a získají představu o tom, o co se v tomto programu jedná.",
   "homePageSectionUniversityLink": "Více informací!",
-
   "bootcampPageTitle": "Bootcamp je pro <b>každého!</b>",
   "bootcampPageDescription": "Abychom potenciálním studentům představili náš program a jeho průmyslové partnery, zveme zájemce, aby se s námi zúčastnili online bootcampu!<br /> <b>Bootcamp</b> je <b>ZDARMA</b> pro předem vybrané účastníky.",
   "bootcampPageInfoBlockTitle": "Bootcamp má dvě fáze",
@@ -163,7 +161,6 @@
   "bootcampPageResumeFormResumeField": "Životopis",
   "bootcampPageResumeFormResumeFieldChooseLabel": "Vyberte soubor PDF",
   "FormEmailFieldValidate": "Neplatný formát e-mail.",
-
   "studentsPageTitle": "MUNI Data Analytics může být<br /> <b>vaší šancí!</b>",
   "studentsPageInfoBlockTitle": "Hlavní fakta o našem studijním programu",
   "studentsPageInfoBlockSpan1": "7 semestr, 210 kreditů profesionální Bakalářský program vyučovaný v angličtině, převážně online. Pro zahraniční a domácí studenty, položení <b>matematických základů analýzy dat, strojového učení a vhodných technologií</b>, včetně alespoň jednosemestrálního cvičení se společnostmi ze soukromého nebo veřejného sektoru.",
@@ -197,7 +194,6 @@
   "studentsPageDataScienceBlockTitle": "Co je Data Science?",
   "studentsPageDataScienceBlockSpan1": "Data Science je rychle rostoucí obor a poptávka po datových analyticích raketově roste. Nástupní platy Data Analyts v USA se pohybují od 60 000 do 100 000+/rok a v Evropě od 45 000 do 65 000 Euro. Nabízíme <b>jedinečný elitní hybridní</b> bakalářský program v oblasti analýzy dat, vyučovaný v angličtině, na dálku s osobními schůzkami dvakrát ročně.",
   "studentsPageDataScienceBlockSpan2": "Vybaví studenty <b>různorodým souborem dovedností pro vývoj datové analýzy a řešení</b> v různých aplikovaných oblastech a připraví je na to, aby splnili rostoucí očekávání konkurenčního, ale obohacujícího trhu práce v Evropě, USA a USA. celosvětově.",
-
   "companiesPageTitle": "Nejlepší řešení &<br />hodnotu pro ",
   "companiesPageTitleSpecial": "vaše podnikání",
   "companiesPageBenefitsTitle": "Výhody",
@@ -213,7 +209,6 @@
   "companiesPageReputationTitle": "Pověst",
   "companiesPageReputationDescription": "Spolupráce s univerzitami může <b>zvýšit důvěryhodnost vaší společnosti</b>, posílit její inovační potenciál a přilákat další investice ze strany studentů, výzkumných pracovníků.",
   "companiesPageButton": "Být v kontaktu!",
-
   "muniPagePrestigiousTitle": "Prestižní",
   "muniPagePrestigiousDescription": "Masarykova univerzita je jednou z renomovaných a prestižních vysokých škol ve střední Evropě, <b>se sídlem v Brně</b>, druhém největším městě České republiky.",
   "muniPageStudyTitle": "Studijní programy",
@@ -235,7 +230,6 @@
   "muniPageStudentsNumber": "30 tis",
   "muniPageGraduates": "Absolventi rok",
   "muniPageGraduatesNumber": "7 tis",
-
   "introductionPageHeader": "Vítejte v programu pro analýzu dat!",
   "introductionPageInformationButton": "Kompletní informace o programu Data Analytics",
   "introductionPageFormDescription": "Připojte se a pracujte s námi!<br />Zanechte svůj e-mail a my vás upozorníme, až program začne. Kompletní informace o programu Data Analytics naleznete ",
@@ -258,6 +252,10 @@
   "introductionPageSuccessfullySaved": "Úspěch",
   "introductionPageSuccessfullySavedMessage": "Zůstaňte s námi v kontaktu. Po spuštění programu vás budeme informovat email.",
   "introductionPageSuccessfullySavedButton": "Dokončete registraci",
-
-  "privacyPolicyButton": "Plná verze Zásad ochrany osobních údajů"
+  "privacyPolicyButton": "Plná verze Zásad ochrany osobních údajů",
+  "loginPageLoginField": "Přihlášení",
+  "loginPagePasswordField": "Heslo",
+  "loginPagePlaceholderLoginField": "Zadejte přihlašovací jméno",
+  "loginPagePlaceholderPasswordField": "Zadejte heslo",
+  "loginPageSubmitButton": "Přihlásit se"
 }

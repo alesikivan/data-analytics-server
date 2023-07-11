@@ -1,4 +1,5 @@
 {
+  "emptyFieldError": "Field can not be empty",
   "interceptorErrorNotification404": "Request does not exist: 404",
   "interceptorErrorNotification": "Access Denied",
   "interceptorErrorNotificationServer": "Undefiend server error",
@@ -113,13 +114,11 @@
   "notFoundPageError": "#404",
   "notFoundPageErrorMessage": "Page Not Found",
   "notFoundPageLink": "Home",
-
   "headerMenuIntroduction": "Intro",
   "headerMenuStudents": "Students",
   "headerMenuCompanies": "Companies",
   "headerMenuMuni": "MUNI",
   "headerMenuBootcamp": "Bootcamp",
-
   "homePageTitle": "MUNI Data Analytics",
   "homePageDescription": "Data Analytics program helps connecting young professionals and well known companies. Data Analytics is intended to equip the future professionals with such diverse skillset.",
   "homePageSignUpLink": "Get started – join the program!",
@@ -137,7 +136,6 @@
   "homePageSectionUniversityTitle": "Masaryk University",
   "homePageSectionUniversityDescription": "At this point we’re inviting interested prospective applicants for an introductory hybrid workshop (online first round with an in-person final round) to work on the company-sponsored trial projects under faculty supervision, get to know our industrial partners and professors, and get a sense what this program would be about.",
   "homePageSectionUniversityLink": "Learn more!",
-
   "bootcampPageTitle": "Bootcamp is for <b>everyone!</b>",
   "bootcampPageDescription": "In order to introduce prospective students to our program and its industrial partners we invite interested applicants to participate in an online bootcamp with us!<br /> The <b>bootcamp</b> is <b>FREE</b> for pre-selected participants.",
   "bootcampPageInfoBlockTitle": "The bootcamp has two phases",
@@ -163,7 +161,6 @@
   "bootcampPageResumeFormResumeField": "Resume",
   "bootcampPageResumeFormResumeFieldChooseLabel": "Choose PDF file",
   "FormEmailFieldValidate": "Invalid email format.",
-
   "studentsPageTitle": "MUNI Data Analytics could be<br /> <b>your chance!</b>",
   "studentsPageInfoBlockTitle": "Main facts about our Study Program",
   "studentsPageInfoBlockSpan1": "7 semester, 210 credit professional Bachelor program taught in English, mainly online. For foreign and domestic students, laying out the <b>mathematical foundations of data analytics, machine learning, and appropriate technology</b>, including at least one-semester practicum with private or public sector companies.",
@@ -197,7 +194,6 @@
   "studentsPageDataScienceBlockTitle": "What is Data Science?",
   "studentsPageDataScienceBlockSpan1": "Data Science is a rapidly growing field, and demand for data analysts is skyrocketing. Starting salaries of Data Analyts in USA range from 60.000 to 100.000+/year and in Europe - from 45.000-65.000 Euro. We are offering a <b>unique elite hybrid</b> bachelors program in Data Analytics, taugh in English, remotely with bi-annual in-person sessions.",
   "studentsPageDataScienceBlockSpan2": "It shall equip the students with <b>the diverse skillset for developing data-driven analytics and solutions</b> in a variety of applied domains, and prepare them to meet rising expectations of a competitive but rewarding job market in Europe, US and worldwide.",
-
   "companiesPageTitle": "Best Solutions & <br />value for ",
   "companiesPageTitleSpecial": "your business",
   "companiesPageBenefitsTitle": "Benefits",
@@ -213,7 +209,6 @@
   "companiesPageReputationTitle": "Reputation",
   "companiesPageReputationDescription": "Cooperation with universities can <b>increase the credibility of your company</b>, strengthen its innovative potential and attract additional investment from students, researchers.",
   "companiesPageButton": "Get in touch!",
-
   "muniPagePrestigiousTitle": "Prestigious",
   "muniPagePrestigiousDescription": "Masaryk University is one of the renowned and prestigious higher education institutions in Central Europe, <b>located in Brno</b>, the second largest city in the Czech Republic.",
   "muniPageStudyTitle": "Study programms",
@@ -235,7 +230,6 @@
   "muniPageStudentsNumber": "30K",
   "muniPageGraduates": "Graduates a year",
   "muniPageGraduatesNumber": "7K",
-
   "introductionPageHeader": "Welcome to Data Analytics Program!",
   "introductionPageInformationButton": "Full information about Data Analytics program",
   "introductionPageFormDescription": "Let's join and work with us!<br />Leave your email and we will notify you when the program starts. Full information about Data Analytics program you can find ",
@@ -258,6 +252,10 @@
   "introductionPageSuccessfullySaved": "Success",
   "introductionPageSuccessfullySavedMessage": "Stay in touch with us. When the program starts we will notify you by email.",
   "introductionPageSuccessfullySavedButton": "Complete sign up",
-
-  "privacyPolicyButton": "Full version of Privacy Policy"
+  "privacyPolicyButton": "Full version of Privacy Policy",
+  "loginPageLoginField": "Login",
+  "loginPagePasswordField": "Password",
+  "loginPagePlaceholderLoginField": "Enter login",
+  "loginPagePlaceholderPasswordField": "Enter password",
+  "loginPageSubmitButton": "Sign in"
 }
