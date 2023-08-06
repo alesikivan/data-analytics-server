@@ -52,6 +52,7 @@ function sendResume(transporter, resumeFile, resumePath, { email, name, surname,
     // Переименовываем файл
     const newPath = `${resumeFile}${'file.pdf'}`
     fs.renameSync(resumePath, newPath)
+    
 
     const styles = `
       font-family: Arial;color: #000;font-size: 15px;
