@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://mda.math.muni.cz/sitemap.xml
