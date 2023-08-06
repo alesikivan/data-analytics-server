@@ -19,6 +19,8 @@ app.use('/api', routes)
 
 app.use('/api/docs/privacy-policy', docsController.getPrivacyPolicy)
 
+app.use('/api/docs/data-processing-consent', docsController.getDataProcessingConsent)
+
 app.use(express.static('./client/dist'))
 
 app.get('*', async (req, res) => {

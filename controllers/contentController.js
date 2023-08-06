@@ -30,7 +30,7 @@ class contentController {
   }
 }
 
-function getLanguage(filename) {
+export function getLanguage(filename) {
   const filePath = path.join(process.cwd(), 'static', 'languages', filename)
 
   return new Promise(resolve => {
