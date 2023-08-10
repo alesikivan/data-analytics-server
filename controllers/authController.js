@@ -36,9 +36,7 @@ class authController {
           }
         })
 
-        const message = `
-          User ${firstname} ${lastname} with email ${email} has been successfully registered in Hubspot!
-        `
+        const message = `User <b>${name}</b> ${surname} with email ${email} has been successfully registered in Hubspot!`
         const title = 'New MDA candidate (sign-up page)'
 
         const confirmTransporting = await confirmResumeUpload(transporter, email.trim(), title, message)
@@ -49,6 +47,7 @@ class authController {
 
         return res.status(200).json({ message: 'Data has been successfully saved!' })
       } catch (error) {
+        console.log('hubspotLogin', error)
         return res.status(400).json({ message: 'Error creating account. Please try with other data.' })
       }
       
