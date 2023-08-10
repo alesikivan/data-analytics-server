@@ -36,7 +36,7 @@ class authController {
           }
         })
 
-        const message = `User <b>${name}</b> ${surname} with email ${email} has been successfully registered in Hubspot!`
+        const message = `User <b>${name} ${surname}</b> with email ${email} has been successfully registered in Hubspot!`
         const title = 'New MDA candidate (sign-up page)'
 
         const confirmTransporting = await confirmResumeUpload(transporter, email.trim(), title, message)
