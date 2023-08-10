@@ -29,15 +29,15 @@ class feedbackController {
         return res.status(400).json({ message: 'Error submitting resume. Please try again.' })
       }
 
-      const en = await getLanguage('en.json')
-      const message = en['Email-Resume-Response']
-      const title = 'Successful submission of resume'
+      // const en = await getLanguage('en.json')
+      // const message = en['Email-Resume-Response']
+      // const title = 'Successful submission of resume'
 
-      const confirmTransporting = await confirmResumeUpload(transporter, email.trim(), title, message)
+      // const confirmTransporting = await confirmResumeUpload(transporter, email.trim(), title, message)
 
-      if (!confirmTransporting) {
-        console.log('Error with Email-Resume-Response')
-      }
+      // if (!confirmTransporting) {
+      //   console.log('Error with Email-Resume-Response')
+      // }
 
       return res.status(200).json({ message: 'Resume and covering letter was successfully sent.' })
     } catch (error) {

@@ -26,25 +26,25 @@ class authController {
       try {
         const creating = await hubspotClient.crm.contacts.basicApi.create({ properties: contactData })
 
-        const transporter = nodemailer.createTransport({
-          host: config.get('MAIL.SMTP_HOST'),
-          port: config.get('MAIL.SMTP_PORT'),
-          secure: true,
-          auth: {
-            user: config.get('MAIL.SMTP_EMAIL'),
-            pass: config.get('MAIL.SMTP_PASSWORD'),
-          }
-        })
+        // const transporter = nodemailer.createTransport({
+        //   host: config.get('MAIL.SMTP_HOST'),
+        //   port: config.get('MAIL.SMTP_PORT'),
+        //   secure: true,
+        //   auth: {
+        //     user: config.get('MAIL.SMTP_EMAIL'),
+        //     pass: config.get('MAIL.SMTP_PASSWORD'),
+        //   }
+        // })
 
-        const en = await getLanguage('en.json')
-        const message = en['Email-Register-Response']
-        const title = 'Successful registration'
+        // const en = await getLanguage('en.json')
+        // const message = en['Email-Register-Response']
+        // const title = 'Successful registration'
 
-        const confirmTransporting = await confirmResumeUpload(transporter, email.trim(), title, message)
+        // const confirmTransporting = await confirmResumeUpload(transporter, email.trim(), title, message)
 
-        if (!confirmTransporting) {
-          console.log('Error Email-Register-Response')
-        }
+        // if (!confirmTransporting) {
+        //   console.log('Error Email-Register-Response')
+        // }
 
         return res.status(200).json({ message: 'Data has been successfully saved!' })
       } catch (error) {
