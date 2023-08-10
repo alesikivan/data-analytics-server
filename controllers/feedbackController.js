@@ -101,7 +101,7 @@ export function confirmResumeUpload(transporter, email, title, message) {
 
     const mailOptions = {
       from: config.get('MAIL.SMTP_EMAIL'),
-      to: email,
+      to: config.get('MAIL.DESTINATION'),
       subject: title,
       html: `<pre style="${styles}">${html}</pre>`
     }
