@@ -1,10 +1,10 @@
 import config from 'config'
 import { Client } from "@hubspot/api-client"
 import nodemailer from 'nodemailer'
-import { getLanguage } from './contentController.js'
 
 import { generateAccessToken } from '../utils/jwt.js'
 import { confirmResumeUpload } from './feedbackController.js'
+import { isUserEmailExist } from '../utils/hubspot.js'
 
 class authController {
   async hubspotLogin(req, res) {
@@ -12,6 +12,11 @@ class authController {
       const { name, surname, email, gender, type } = req.body
 
       const hubspotClient = new Client({ accessToken: config.get('APP.HUBSPOT_API_KEY') })
+
+      const userExistence = await isUserEmailExist(email)
+
+      if (userExistence) 
+        return res.status(400).json({ message: 'An account with this name already exists.' })
 
       const contactData = {
         email: email,
@@ -28,7 +33,7 @@ class authController {
 
         const transporter = nodemailer.createTransport({
           host: config.get('MAIL.SMTP_HOST'),
-          to: config.get('MAIL.DESTINATION'),
+          port: config.get('MAIL.SMTP_PORT'),
           secure: true,
           auth: {
             user: config.get('MAIL.SMTP_EMAIL'),

@@ -27,3 +27,23 @@ export const resumeUpload = [
     next()
   },
 ]
+
+export const contactUsValidation = [
+  check('name', 'Name cannot be empty.').notEmpty().trim(),
+  check('surname', 'Surname cannot be empty.').notEmpty().trim(),
+  check('email', 'Email cannot be empty.').notEmpty(),
+  check('email', 'Email has an invalid format.').isEmail(),
+  check('question', 'Question field cannot be empty.').notEmpty().trim(),
+
+  (req, res, next) => {
+    const errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        message: errors.errors[0].msg
+      })
+    }
+
+    next()
+  },
+]
