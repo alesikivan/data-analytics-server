@@ -108,7 +108,7 @@ class feedbackController {
       })
 
 
-      const message = `User <b>${name} ${surname}</b> with email ${email} has a question!<br /><b>Question:</b> ${question}`
+      const message = `The user with email ${email} has a question!<br /><b>Question:</b> ${question}`
       const title = 'Question – Contact Us Form'
 
       const confirmTransporting = await confirmResumeUpload(transporter, email.trim(), title, message)
@@ -137,9 +137,7 @@ function sendResume(transporter, resumeFile, resumePath, { email, name, surname,
     `
 
     const html = `
-      <p style="${styles}"> <b>Email:</b> ${email} </p>
-      <p style="${styles}"> <b>Name:</b> ${name} </p>
-      <p style="${styles}"> <b>Surname:</b> ${surname} </p>
+      <p style="${styles}"> <b>Resume of a person with mail:</b> ${email} </p>
       <p style="${styles}"> <b>Covering Letter:</b>  </p>
       <pre style="${styles}">${coveringLetter}</pre>
     `
