@@ -59,7 +59,8 @@ class NewsController {
       const json = JSON.parse(data)
 
       const newItem = {
-        title, img, date, content, id: uuidv4()
+        title, img, date, content, 
+        id: uuidv4()
       }
 
       json.push(newItem)
