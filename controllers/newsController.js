@@ -14,7 +14,9 @@ class NewsController {
 
       const news = JSON.parse(data)
 
-      return res.status(200).json(news)
+      setTimeout(() => {
+        return res.status(200).json(news)
+      }, 1000)
     } catch (error) {
       console.log(error)
       return res.status(400).json({ message: 'Undefined server error' })
