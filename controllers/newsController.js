@@ -93,7 +93,7 @@ class NewsController {
       const json = JSON.parse(data)
 
       if (!json.find(news => news.id === id)) 
-        return res.status(200).json({ message: 'Can not find the news.' })
+        return res.status(400).json({ message: 'Can not find the news.' })
 
       const newItem = {
         title, img, date, content
@@ -129,7 +129,7 @@ class NewsController {
       const json = JSON.parse(data)
 
       if (!json.find(news => news.id === id)) 
-        return res.status(200).json({ message: 'Can not find the news.' })
+        return res.status(400).json({ message: 'Can not find the news.' })
 
       const items = json.filter(news => news.id !== id)
 

@@ -7,8 +7,7 @@ module.exports = {
         'db',
       ],
       env: {
-        NODE_ENV: 'production',
-        PORT: 5000
+        NODE_ENV: 'production'
       }
     }
   ],
@@ -21,7 +20,7 @@ module.exports = {
       repo: 'https://github.com/alesikivan/data-analytics-server',
       path: '/home/ialesik/apps/digital-city',
       'pre-deploy-local': '',
-      'post-deploy': 'npm install && pm2 delete data-analytics-server && pm2 start prod.ecosystem.config.cjs && pm2 save --force',
+      'post-deploy': 'npm install && pm2 delete data-analytics-server && pm2 start server.js --name data-analytics-server --watch --ignore-watch=["db"] && pm2 save --force',
       'pre-setup': ''
     }
   }
