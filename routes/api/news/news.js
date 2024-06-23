@@ -27,6 +27,16 @@ router.post(
   controller.updateNews
 )
 
+router.get(
+  '/current-news-amount', 
+  controller.getCurrentNewsAmount
+)
+
+router.post(
+  '/resave-news-order', 
+  controller.resaveNewsOrder
+)
+
 router.post(
   '/remove', 
   controller.removeNews

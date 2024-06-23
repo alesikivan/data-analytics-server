@@ -9,14 +9,23 @@ const __dirname = path.dirname(__filename)
 class NewsController {
   async getNews(req, res) {
     try {
-      const filePath = path.join(__dirname, '../db/data/news.json');
+      const filePath = path.join(__dirname, '../db/data/news.json')
       const data = await readFile(filePath, 'utf8')
 
-      const news = JSON.parse(data)
+      let news = JSON.parse(data)
 
-      setTimeout(() => {
-        return res.status(200).json(news)
-      }, 1000)
+      return res.status(200).json(news)
+
+      // Добавляем порядок тем новостям, 
+      // которые их не содержат по каким-либо причинам
+
+      // news = news.map(_news => {
+      //   if (!_news.order) _news.order = 0
+
+      //   return _news
+      // })
+      // return res.status(200).json(news.sort((a, b) => a.order - b.order ))
+
     } catch (error) {
       console.log(error)
       return res.status(400).json({ message: 'Undefined server error' })
@@ -36,7 +45,7 @@ class NewsController {
 
       const candidate = news.find(news => news.id === id)
 
-      if (!candidate) 
+      if (!candidate)
         return res.status(400).json({ message: 'Can not find the news.' })
 
       return res.status(200).json(candidate)
@@ -52,7 +61,8 @@ class NewsController {
         title = '',
         img = '',
         date = '',
-        content = ''
+        content = '',
+        order = 0
       } = req.body
 
       const filePath = path.join(__dirname, '../db/data/news.json');
@@ -61,14 +71,12 @@ class NewsController {
       const json = JSON.parse(data)
 
       const newItem = {
-        title, img, date, content, 
+        title, img, date, content, order,
         id: uuidv4()
       }
 
-      json.push(newItem)
-
       // Запись обновленного содержимого обратно в JSON-файл
-      await writeFile(filePath, JSON.stringify(json, null, 2), 'utf8')
+      await writeFile(filePath, JSON.stringify([newItem, ...json], null, 2), 'utf8')
 
       return res.status(200).json({ message: 'The news has been successfully saved.' })
     } catch (error) {
@@ -84,7 +92,8 @@ class NewsController {
         title = '',
         img = '',
         date = '',
-        content = ''
+        content = '',
+        order = 0
       } = req.body
 
       const filePath = path.join(__dirname, '../db/data/news.json')
@@ -92,11 +101,11 @@ class NewsController {
 
       const json = JSON.parse(data)
 
-      if (!json.find(news => news.id === id)) 
+      if (!json.find(news => news.id === id))
         return res.status(400).json({ message: 'Can not find the news.' })
 
       const newItem = {
-        title, img, date, content
+        title, img, date, content, order
       }
 
       const items = json.map(news => {
@@ -117,6 +126,53 @@ class NewsController {
     }
   }
 
+  async getCurrentNewsAmount(req, res) {
+    try {
+
+      const filePath = path.join(__dirname, '../db/data/news.json')
+      const data = await readFile(filePath, 'utf8')
+
+      const news = JSON.parse(data)
+
+      console.log(news.length)
+
+      return res.status(200).json({ amount: Number(news.length) })
+    } catch (error) {
+      console.log(error)
+      return res.status(400).json({ message: 'Undefined server error' })
+    }
+  }
+
+  async resaveNewsOrder(req, res) {
+    try {
+      const {
+        ids = [],
+      } = req.body
+
+      const filePath = path.join(__dirname, '../db/data/news.json')
+      const data = await readFile(filePath, 'utf8')
+
+      const news = JSON.parse(data)
+
+      // Создаем объект для быстрого доступа к объектам по id
+      const newsMap = news.reduce((acc, obj) => {
+        acc[obj.id] = obj
+        return acc
+      }, {})
+
+      // Создаем новый массив объектов, отсортированный по idArray
+      const sortedNews = ids.map(id => newsMap[id])
+
+      // Запись обновленного содержимого обратно в JSON-файл
+      await writeFile(filePath, JSON.stringify(sortedNews, null, 2), 'utf8')
+
+      return res.status(200).json({ message: 'The news has been successfully resaved.' })
+    } catch (error) {
+      console.log(error)
+      return res.status(400).json({ message: 'Undefined server error' })
+    }
+  }
+
   async removeNews(req, res) {
     try {
       const {
@@ -128,7 +184,7 @@ class NewsController {
 
       const json = JSON.parse(data)
 
-      if (!json.find(news => news.id === id)) 
+      if (!json.find(news => news.id === id))
         return res.status(400).json({ message: 'Can not find the news.' })
 
       const items = json.filter(news => news.id !== id)
